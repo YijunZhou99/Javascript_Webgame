@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Yijun Zhou #S01435539">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Match Game</title>
+    <link rel = "stylesheet" href="styles.css">
+  </head>
+  
+  <body onload="setup()"> 
+    <p style="color:black;font-size:30px;" >
+      Card Match Game
+    </p>
+
+    <!-- the game content -->
+    <div class = "game_board" >
+      <div class = "navbar game_items">
+        <div class = "bar_element timer">
+          <p id = "timer">01:30</p>
+        </div>
+        <div class = "bar_element">
+          <p></p>
+        </div>
+        <div class = "bar_element">
+          <p></p>
+        </div>
+        <div class = "bar_element">
+          <img src = "images/home.png"  onclick = "reTry()" title = "Home">
+        </div>
+      </div>
+
+      <div class = "game_items">
+        <p>Flipped: <span id = 'flippedTime'>0</span>
+           Best Record: <span id = 'bestRecord'></span></p>
+      </div>
+
+      <div class = "cards game_items">
+        <div class = "card easy median hard">
+          <div class = "front" >
+            <img src = "images/Picture2.jpg" name = 'grape'>
+          </div>
+          <div class = "back" >
+            <img  src = "images/back.png">
+          </div>
+        </div>
+        <div class = "card easy median hard">
+          <div class = "front" >
+            <img src = "images/Picture7.jpg" name ='banana'>
+          </div>
+          <div class = "back" >
+            <img  src = "images/back.png">
+          </div>
+        </div>
+        <div class = "card easy median hard">
+          <div class = "front" >
+            <img src = "images/Picture7.jpg" name ='banana'>
+          </div>
+          <div class = "back" >
+            <img  src = "images/back.png">
+          </div>
+        </div>
+        <div class = "card easy median hard">
+          <div class = "front" >
+            <img src = "images/Picture2.jpg" name = 'grape'>
+          </div>
+          <div class = "back" >
+            <img  src = "images/back.png">
+          </div>
+        </div>
+        <div class = "card easy median hard">
+          <div class = "front" >
+            <img src = "images/Picture1.jpg" name = "watermelon">
+          </div>
+          <div class = "back" >
+            <img  src = "images/back.png">
+          </div>
+        </div>
+        <div class = "card easy median hard">
+          <div class = "front" >
+            <img src = "images/Picture6.jpg" name = "pineapple">
+          </div>
+          <div class = "back" >
+            <img  src = "images/back.png">
+          </div>
+        </div>
+        <div class = "card easy median hard">
+          <div class = "front" >
+            <img src = "images/Picture5.jpg" name = "kiwi">
+          </div>
+          <div class = "back" >
+            <img  src = "images/back.png">
+          </div>
+        </div>
+        <div class = "card easy median hard">
+          <div class = "front" >
+            <img src = "images/Picture6.jpg" name = "pineapple">
+          </div>
+          <div class = "back" >
+            <img  src = "images/back.png">
+          </div>
+        </div>
+        <div class = "card median hard">
+          <div class = "front" >
+            <img src = "images/Picture4.jpg" name = "strawberry">
+          </div>
+          <div class = "back" >
+            <img  src = "images/back.png">
+          </div>
+        </div>
+        <div class = "card median hard">
+          <div class = "front" >
+            <img src = "images/Picture4.jpg" name = "strawberry">
+          </div>
+          <div class = "back" >
+            <img  src = "images/back.png">
+          </div>
+        </div>
+        <div class = "card median hard">
+          <div class = "front" >
+            <img src = "images/Picture3.jpg" name = "orange">
+          </div>
+          <div class = "back" >
+            <img  src = "images/back.png">
+          </div>
+        </div>
+        <div class = "card median hard">
+          <div class = "front" >
+            <img src = "images/Picture8.jpg" name = "peach">
+          </div>
+          <div class = "back" >
+            <img  src = "images/back.png">
+          </div>
+        </div>
+        <div class = "card hard">
+          <div class = "front" >
+            <img src = "images/Picture5.jpg" name = "kiwi">
+          </div>
+          <div class = "back" >
+            <img  src = "images/back.png">
+          </div>
+        </div>
+        <div class = "card hard">
+          <div class = "front" >
+            <img src = "images/Picture8.jpg" name = "peach">
+          </div>
+          <div class = "back" >
+            <img  src = "images/back.png">
+          </div>
+        </div>
+        <div class = "card hard">
+          <div class = "front" >
+            <img src = "images/Picture3.jpg" name = "orange">
+          </div>
+          <div class = "back" >
+            <img  src = "images/back.png">
+          </div>
+        </div>
+        <div class = "card hard">
+          <div class = "front" >
+            <img src = "images/Picture1.jpg" name = "watermelon">
+          </div>
+          <div class = "back" >
+            <img  src = "images/back.png">
+          </div>
+        </div>
+
+     </div>
+    </div>
+    <br>
+    <div style="display: inline-block;text-align: right;color:grey;width: 25%;" title="yz215@rice.edu">
+      @yijun_zhou
+      </div>
+    <!-- <span style="float:right;">yijun zhou(yz215@rice.edu)</span> -->
+
+    <!-- showing the game result and initial the game -->
+    <div class = "result" id = "result">
+      <div id = "welcome_page" style="font-size:30px;" >
+        <span id ='game_massage'>Welcome to </br>Card Match Game!</br></span>
+        <span id = "game_result" style="font-size:25px;"></span>
+        <button onclick="chooseGamemode()">new game</button>
+        <button onclick="showLeadboard()">scoreboard</button>
+        </div>
+
+      <div id = "leadboard_page" style="font-size:24px; display:none; text-align: left;">
+        Your best scores:
+        easy: <span id = 'best_easy'></span></br>
+        median: <span id = 'best_median'></span></br>
+        hard: <span id = 'best_hard'></span></br>
+        <button onclick="backtoHome()">Home</button>
+      </div>
+
+      <div id = "game_mode_page" style="font-size:24px; display:none; text-align: left;">
+        Start Playing:
+        <br>
+        <input id = "easy" type = radio name = "game_mode">
+        <label for = "easy">Easy</label>
+        <br>
+        <input id = "median" type = radio name = "game_mode">
+        <label for = "median">Median</label>
+        <br>
+        <input id = "hard" type = radio name = "game_mode">
+        <label for = "hard">Hard</label>
+        <br>
+        <button id = "restart" onclick="startGame()">Start</button>
+        <button onclick="backtoHome()">Home</button>
+      </div>
+    </div>
+    
+  </body>
+  <script src="index.js"></script>
+
+</html>
